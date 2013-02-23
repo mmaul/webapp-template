@@ -1,0 +1,14 @@
+include "web/web_server";
+include "app/hello";
+
+
+open HTTPHandler;
+open ServerConfig;
+open Logger;
+open WebServer;
+
+var config = basic_server_config(Hello::app_handlers()+
+                                 default_handlers());
+config.log(INFO,"Starting the server");
+
+start_webserver(config);

@@ -1,0 +1,26 @@
+include "PKGTOOL/pkgtool";
+//$ Preforms build tasks in a way an Web Application might like them done
+BUILD_LIKE = WebApp;
+//$ This NEEDS to be set to where the web app will live on the file system
+DEST_DIR = ("usr".join("local")).join("www");
+
+open PkgTool;
+open Filename;
+//$ By default setup will statically compile the flx file in the app directory
+//$ as is in the NAME: field in README.md
+//$ if you need to do something special in each phase, create an proc instance
+//$ for that phase. phases are build, test, install and clean.
+//$ You will probably want to call default_<phase> at the end of your instace
+//$ if you still want to default behavior to be preformed in addition to
+//$ your special sauce.
+
+instance PkgTool {
+
+  proc build () {
+    task("Custom build for " + NAME);
+    default_build();
+  }
+
+}
+
+SetupTool::run();
