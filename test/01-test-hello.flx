@@ -1,18 +1,15 @@
 include "PKGTOOL/pkgtool";
-open PkgTool;
 include "web/http_request";
 include "web/server_config";
-include "web/http_connection";
 include "web/http_handler";
-include "web/http_response";
+include "app/hello";
+open PkgTool;
 open ServerConfig;
 open HTTPRequest;
-open HTTPConnection;
 open HTTPHandler;
-open HTTPResponse;
 open Hello;
 
-include "app/hello";
+
 var mock_server_config = basic_server_config(Empty[http_handler]);
 var mock_request = http_request(GET ,"http://127.0.0.1:8080/hello","/hello",Empty[string^2],Empty[string^2],Empty[string^2]);
 
