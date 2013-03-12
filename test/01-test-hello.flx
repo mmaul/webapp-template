@@ -1,4 +1,4 @@
-include "PKGTOOL/pkgtool";
+include "std/felix/pkgtool";
 include "web/http_request";
 include "web/server_config";
 include "web/http_handler";
